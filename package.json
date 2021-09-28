@@ -1,0 +1,14 @@
+{
+  "name": "cypress_expts",
+  "version": "1.0.0",
+  "description": "Experiments with Cypress UI Test Automation",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run"
+  },
+  "author": "Edmund M BISHANGA",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^8.4.0"
+  }
+}
