@@ -7,8 +7,8 @@
 const urlUnderTest = 'http://strava.com'
 const dashRoute = '/dashboard'
 const validUser = {
-    'email': 'me.bishanga@gmail.com',
-    'pswd': 'gm!!!StravaApp47',
+    'email': Cypress.env('strava_username'),
+    'pswd': Cypress.env('strava_pswd'),
 }
 
 describe(`Testing: ${urlUnderTest}: Login and Test userDashboard`, () => {
