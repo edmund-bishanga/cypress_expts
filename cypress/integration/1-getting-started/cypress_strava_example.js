@@ -1,24 +1,15 @@
 /// <reference types="cypress" />
 
 const urlUnderTest = 'http://strava.com'
-const userCreds1 = {
-    'user_name': 'abc123@yahoo.co.uk',
-    'pswd': 'foobar456',
-}
-const userCreds2 = {
-    'user_name': 'efg4567@gmail.com',
-    'pswd': 'barfoo789',
-}
+const invalidUsersJSON = require("../../fixtures/strava_users_invalid.json")
 const userCreds3 = {
-    'user_name': 'me.bishanga@gmail.com',
-    'pswd': 'gm!!!StravaApp47',
+    'user_name': Cypress.env('strava_username'),
+    'pswd': Cypress.env('strava_pswd'),
 }
-const invalidUsers = [userCreds1, userCreds2]
 const validUsers = [userCreds3]
 
 function logInAs(username, password) {
     cy.log(`Logging in as ${username}`)
-    //   .visit('/login')
       .get('[id=email]').type(username)
       .get('[id=password').type(password)
       .get('[id=login-button]')
@@ -27,7 +18,6 @@ function logInAs(username, password) {
 
 function verifyLogInErrHandling() {
     const exp_err_msg = 'The username or password did not match'
-    const exp_err_msg_expired = 'Your session expired'
     cy.get('.alert-message').should('contain', exp_err_msg)
 }
 
@@ -47,10 +37,11 @@ describe(`Testing: ${urlUnderTest}: Login and Do a few Basics`, () => {
     })
     it('Logging in: ErrHandling: Invalid pswd', () => {
         cy.location('pathname').should('include', '/login')
-        invalidUsers.forEach(person => {
-            logInAs(person.user_name, person.pswd)
+        cy.log(`DEBUG: From Fixtures: invalidUsersJSON: ${JSON.stringify(invalidUsersJSON)}`)
+        for (var userKey in invalidUsersJSON) {
+            logInAs(invalidUsersJSON[userKey]['email'], invalidUsersJSON[userKey]['pswd'])
             verifyLogInErrHandling()
-        });
+        }
     })
     it('Logging in: as a Valid User', () => {
         cy.location('pathname').should('include', '/login')

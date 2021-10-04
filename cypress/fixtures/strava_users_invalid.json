@@ -1,0 +1,14 @@
+{
+  "iUser1": {
+    "email": "strava_email_addr1",
+    "pswd": "strava_pswd1"
+  },
+  "iUser2": {
+    "email": "strava_email_addr2",
+    "pswd": "strava_pswd2"
+  },
+  "iUser3": {
+    "email": "strava_email_addr3",
+    "pswd": "strava_pswd3"
+  }
+}
