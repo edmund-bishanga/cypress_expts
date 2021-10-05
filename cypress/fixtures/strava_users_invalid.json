@@ -4,11 +4,27 @@
     "pswd": "strava_pswd1"
   },
   "iUser2": {
-    "email": "strava_email_addr2",
+    "email": "missing_at_gmail.com",
     "pswd": "strava_pswd2"
   },
   "iUser3": {
-    "email": "strava_email_addr3",
+    "email": "123@abc.gibrisha;a;lks.uk",
     "pswd": "strava_pswd3"
+  },
+  "iUser4": {
+    "email": "abcdetypo@@gmail.com",
+    "pswd": "strava_pswd4"
+  },
+  "iUser5": {
+    "email": "abcdetypo@@yahoo.com",
+    "pswd": "strava_pswd5"
+  },
+  "iUser6": {
+    "email": "abcdetypo@@hotmail.com",
+    "pswd": "strava_pswd6"
+  },
+  "iUser7": {
+    "email": "abcdetypo@@afromail.com",
+    "pswd": "strava_pswd7"
   }
 }

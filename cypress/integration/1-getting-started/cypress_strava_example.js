@@ -1,12 +1,13 @@
 /// <reference types="cypress" />
 
 const urlUnderTest = 'http://strava.com'
-const invalidUsersJSON = require("../../fixtures/strava_users_invalid.json")
 const userCreds3 = {
     'user_name': Cypress.env('strava_username'),
     'pswd': Cypress.env('strava_pswd'),
 }
 const validUsers = [userCreds3]
+
+const invalidUsers = require("../../fixtures/strava_users_invalid.json")
 
 function logInAs(username, password) {
     cy.log(`Logging in as ${username}`)
@@ -37,9 +38,9 @@ describe(`Testing: ${urlUnderTest}: Login and Do a few Basics`, () => {
     })
     it('Logging in: ErrHandling: Invalid pswd', () => {
         cy.location('pathname').should('include', '/login')
-        cy.log(`DEBUG: From Fixtures: invalidUsersJSON: ${JSON.stringify(invalidUsersJSON)}`)
-        for (var userKey in invalidUsersJSON) {
-            logInAs(invalidUsersJSON[userKey]['email'], invalidUsersJSON[userKey]['pswd'])
+        cy.log(`DEBUG: From Fixtures: invalidUsers: ${JSON.stringify(invalidUsers)}`)
+        for (var person in invalidUsers) {
+            logInAs(invalidUsers[person]['email'], invalidUsers[person]['pswd'])
             verifyLogInErrHandling()
         }
     })
