@@ -45,7 +45,29 @@ describe(`Testing: ${urlUnderTest}: Login and Test userDashboard`, () => {
     })
     it('DashboardVerification: Athlete Profile Summary, Present?', () => {
         cy.log('Verify: 2: Athlete Profile Summary: OK?')
-        // Athlete's summary sidebar present, has avatar image, with src attribute
+        // Athlete's summary sidebar present, has avatar image, with href attribute that contains '/athletes/int'
+        cy.get('.athlete-profile').as('athleteProfile')
+          .find('.card-body').find('a').should('have.attr', 'href')
+          .and('include', '/athletes/')
+
+        cy.get('@athleteProfile')
+          .find('.avatar-img').should('have.attr', 'src')
+          .and('include', '.jpg')
+
+        cy.get('@athleteProfile')
+          .find('.list-stats').find('li').first()
+          .find('a').should('have.attr', 'href')
+          .and('include', 'type=following')
+
+        cy.get('@athleteProfile')
+          .find('.list-stats').find('li').eq(1)
+          .find('a').should('have.attr', 'href')
+          .and('include', 'type=followers')          
+
+        cy.get('@athleteProfile')
+          .find('.list-stats').find('li').last()
+          .find('a').should('have.attr', 'href')
+          .and('include', '/athlete/training')          
     })
     it('DashboardVerification: Can Return to HomePage?', () => {
         cy.log('Verify: 3: Can Return to HomePage?')
