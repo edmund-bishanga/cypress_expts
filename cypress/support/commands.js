@@ -15,7 +15,7 @@
 Cypress.Commands.add('logInAs', (userEmail, password) => {
     cy.log(`Logging in as ${userEmail}`)
       .get('[id=email]').type(userEmail)
-      .get('[id=password').type(password)
+      .get('[id=password]').type(password, {log: false})
       .get('[id=login-button]')
       .click()
 })

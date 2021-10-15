@@ -2,8 +2,8 @@
 
 const urlUnderTest = 'http://strava.com'
 const userCreds3 = {
-    'user_name': Cypress.env('strava_username'),
-    'pswd': Cypress.env('strava_pswd'),
+    'user_name': Cypress.env('athlete_username'),
+    'pswd': Cypress.env('athlete_pswd'),
 }
 const validUsers = [userCreds3]
 
