@@ -108,5 +108,9 @@ describe(`Testing: ${urlUnderTest}: Login and Test userDashboard`, () => {
         .should('have.attr', 'href').should('contain', '/session')
       cy.get('@logOutOption')
         .should('have.text', 'Log Out')
+      // eslint-disable-next-line cypress/no-force
+      cy.get('@logOutOption').click({force: true})
+      cy.url().should('include', 'login')
+
     })
 })
