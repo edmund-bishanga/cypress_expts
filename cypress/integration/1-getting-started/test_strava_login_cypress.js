@@ -10,10 +10,14 @@ const userCreds2 = {
     'pswd': 'barfoo789',
 }
 const userCreds3 = {
-    'user_name': 'me.bishanga@gmail.com',
-    'pswd': 'gm!!!StravaApp47',
+    'user_name': Cypress.env('athlete_username'),
+    'pswd': Cypress.env('athlete_pswd'),
 }
-const invalidUsers = [userCreds1, userCreds2]
+const userCreds4 = {
+    'user_name': 'xyz456@gmail.com',
+    'pswd': 'barfoo321',
+}
+const invalidUsers = [userCreds1, userCreds2, userCreds4]
 const validUsers = [userCreds3]
 
 function logInAs(username, password) {
