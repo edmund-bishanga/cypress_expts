@@ -4,7 +4,8 @@
   "description": "Experiments with Cypress UI Test Automation",
   "main": "index.js",
   "scripts": {
-    "test": "cypress run"
+    "test": "cypress run",
+    "api_test": "mocha"
   },
   "author": "Edmund M BISHANGA",
   "license": "ISC",
@@ -14,6 +15,9 @@
     "eslint-plugin-cypress": "^2.12.1"
   },
   "dependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.1.3",
+    "supertest": "^6.1.6",
     "yarn": "^1.22.17"
   },
   "repository": {
