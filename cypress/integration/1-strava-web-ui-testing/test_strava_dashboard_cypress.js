@@ -38,7 +38,7 @@ describe(`Testing: ${urlUnderTest}: Login and Test userDashboard`, () => {
       // M: Validate URL: loginPage
       // m: Verify validUser LogIn
       // cy.log(`DEBUG: CypressConfig: ${JSON.stringify(Cypress.config(), null, '  ')}`)
-      // console.log(`CypressConfig: ${JSON.stringify(Cypress.config(), null, 3)}`)
+      // console.log(`DEBUG: CypressConfig: ${JSON.stringify(Cypress.config(), null, 3)}`)
       cy.visit(urlUnderTest)
         .log('Get to LogIn Page')
         .get('.btn-login').should('contain', 'Log In').click()
